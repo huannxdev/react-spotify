@@ -1,0 +1,40 @@
+.top-bar__container {
+  grid-area: main-view;
+  z-index: 1;
+  @apply px-8 py-4 flex justify-between items-center h-topBar;
+  .arrow-button {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+
+    i {
+      font-size: 32px;
+    }
+  }
+
+  .user-dropdown {
+    @apply bg-black flex align-middle;
+    height: 32px;
+    border-radius: 20px;
+    min-width: 32px;
+    padding: 1px 8px 1px 1px;
+    cursor: pointer;
+
+    .icon-dropdown {
+      font-size: 14px;
+    }
+  }
+
+  .top-bar__avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+}

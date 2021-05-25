@@ -7,7 +7,7 @@
     ".eslintrc.json": "*"
   },
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "npmScope": "spotify",
   "tasksRunnerOptions": {
@@ -25,6 +25,39 @@
     "spotify-e2e": {
       "tags": [],
       "implicitDependencies": ["spotify"]
+    },
+    "ui-layout": {
+      "tags": []
+    },
+    "nav-bar": {
+      "tags": []
+    },
+    "categories": {
+      "tags": []
+    },
+    "main-view": {
+      "tags": []
+    },
+    "now-playing-bar": {
+      "tags": []
+    },
+    "play-button": {
+      "tags": []
+    },
+    "auth": {
+      "tags": []
+    },
+    "web-store": {
+      "tags": []
+    },
+    "spotify-route": {
+      "tags": []
+    },
+    "web-top-bar": {
+      "tags": []
+    },
+    "web-shared-app-config": {
+      "tags": []
     }
   }
 }

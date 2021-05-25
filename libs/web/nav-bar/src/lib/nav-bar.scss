@@ -1,0 +1,22 @@
+.nav-bar {
+  z-index: 3;
+  min-height: 0;
+  grid-area: nav-bar;
+}
+
+.nav-link-container {
+  .nav-link {
+    border-radius: 4px;
+    height: 40px;
+
+    &.active {
+      background-color: #282828;
+      font-weight: 600;
+      color: #ffff;
+    }
+  }
+
+  .link-subtle {
+    color: #b3b3b4;
+  }
+}

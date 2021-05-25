@@ -1,0 +1,15 @@
+.now-playing-bar {
+  grid-area: now-playing-bar;
+  width: 100%;
+  &__container {
+    background-color: #181818;
+    display: grid;
+    grid-template-columns: minmax(180px,30%) minmax(40%,722px) minmax(180px,30%);
+    align-items: center;
+    height: 90px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    min-width: 620px;
+  }
+}
+

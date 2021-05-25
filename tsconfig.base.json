@@ -14,7 +14,26 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@spotify/web/layout": ["libs/web/layout/src/index.ts"],
+      "@spotify/web/nav-bar": ["libs/web/nav-bar/src/index.ts"],
+      "@spotify/web/browse/features/categories": [
+        "libs/web/browse/features/categories/src/index.ts"
+      ],
+      "@spotify/web/main-view": ["libs/web/main-view/src/index.ts"],
+      "@spotify/web/now-playing-bar": ["libs/web/now-playing-bar/src/index.ts"],
+      "@spotify/web/shared/ui/play-button": [
+        "libs/web/shared/ui/play-button/src/index.ts"
+      ],
+      "@spotify/web/auth": ["libs/web/auth/src/index.ts"],
+      "@spotify/web/store": ["libs/web/store/src/index.ts"],
+      "@spotify/apis": ["libs/apis/src/index.ts"],
+      "@spotify/spotify-route": ["libs/spotify-route/src/index.ts"],
+      "@spotify/web/top-bar": ["libs/web/top-bar/src/index.ts"],
+      "@spotify/web/shared/app-config": [
+        "libs/web/shared/app-config/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
