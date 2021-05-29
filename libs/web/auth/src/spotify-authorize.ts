@@ -2,7 +2,7 @@ import { AuthModel } from './models/auth.model';
 
 export class SpotifyAuthorize {
   SPOTIFY_AUTHORIZE_URL = 'https://accounts.spotify.com/authorize';
-  CLIENT_ID = 'd06c09470bb646ebb33f27616fb151fb';
+  CLIENT_ID = '57dc7a2f766b4eec968c8ab8eb16be78';
   SCOPES = [
     //Listening History
     'user-read-recently-played',
@@ -30,7 +30,7 @@ export class SpotifyAuthorize {
   createAuthorizeURL() {
     const params = new URLSearchParams({
       client_id: this.CLIENT_ID,
-      redirect_uri: `${window.location.origin}/`,
+      redirect_uri: `http://localhost:4200/callback/`,
       scope: encodeURIComponent(this.SCOPES.join(' ')),
       response_type: 'token'
     });
@@ -40,6 +40,14 @@ export class SpotifyAuthorize {
 
 export function getToken(): string {
   return localStorage.getItem('accessToken');
+}
+
+export function getAuthInfo(): AuthModel {
+  return  {
+    accessToken: localStorage.getItem('accessToken'),
+    tokenType: localStorage.getItem('tokenType'),
+    expiresIn: localStorage.getItem('expiresIn')
+  }
 }
 
 export function authDataFromHash(url: string): AuthModel {

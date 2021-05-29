@@ -7,16 +7,18 @@ import { Route, Redirect } from 'react-router-dom';
 /* eslint-disable-next-line */
 export interface SpotifyRouteProps {
   path: string;
-  exact: boolean;
-  render: any;
-  component: FunctionComponent | ComponentClass;
+  exact?: boolean;
+  render?: any;
+  component?: FunctionComponent | ComponentClass;
 }
 
 export function SpotifyRoute(props: SpotifyRouteProps) {
-  const isLogin = !!getToken();
+  const isLogin = getToken();
   const spoifyAuthUrl = new SpotifyAuthorize().createAuthorizeURL();
-  return  isLogin ? (<Route  path={props.path}  exact={props.exact} component={props.component} render={() => props.render} />) :
-    (<Redirect  to={spoifyAuthUrl}  />);
+  if (!isLogin && !window.location.hash) {
+    window.location.href = spoifyAuthUrl;
+  }
+  return (<Route  path={props.path}  exact={props.exact} component={props.component} render={() => props.render} />);
 }
 
 export default SpotifyRoute;

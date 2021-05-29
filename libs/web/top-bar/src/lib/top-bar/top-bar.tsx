@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import './top-bar.scss';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useSelector } from 'react-redux';
-import { RootState } from '@spotify/web/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMeRequest, RootState } from '@spotify/web/store';
 
 /* eslint-disable-next-line */
 export interface TopBarProps {}
@@ -24,7 +24,13 @@ export function TopBar(props: TopBarProps) {
     </Menu>
   );
   const userName = useSelector((state: RootState) => state.user.userName);
-  const img = useSelector((state: RootState) => state.user.userAvatar)
+  const img = useSelector((state: RootState) => state.user.userAvatar);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMeRequest());
+  }, [])
+
   return (
     <div className='top-bar__container'>
       <div className='flex'>

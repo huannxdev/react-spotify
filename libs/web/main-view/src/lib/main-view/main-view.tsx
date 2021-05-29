@@ -1,8 +1,10 @@
 import React from 'react';
-import { Switch, Route} from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 import './main-view.scss';
 import { Categories } from '@spotify/web/browse/features/categories';
+import { SpotifyRoute } from '@spotify/spotify-route';
+import { Home } from '@spotify/web/home';
 
 /* eslint-disable-next-line */
 export interface MainViewProps {}
@@ -11,10 +13,8 @@ export function MainView(props: MainViewProps) {
   return (
     <div className='main-view'>
       <Switch>
-        <Route path="/browse" render={() => (
-          <Categories />
-        )}>
-        </Route>
+        <SpotifyRoute path="/" exact={true} component={Home} />
+        <SpotifyRoute path="/browse"  component={Categories} />
       </Switch>
     </div>
   );

@@ -58,6 +58,18 @@
     },
     "web-shared-app-config": {
       "tags": []
+    },
+    "home": {
+      "tags": []
+    },
+    "recent-played": {
+      "tags": []
+    },
+    "web-song": {
+      "tags": []
+    },
+    "callback": {
+      "tags": []
     }
   }
 }

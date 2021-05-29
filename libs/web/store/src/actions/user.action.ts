@@ -9,9 +9,10 @@ export const getMeRequest = () => {
       type: GET_ME_REQUEST
     });
     getMe().then(res => {
-      dispatch(getMeSuccess(res))
+      const { data } = res;
+      dispatch(getMeSuccess(data));
     }).catch((error) => {
-      dispatch(getMeFailed(error))
+      dispatch(getMeFailed(error));
     });
   };
 }

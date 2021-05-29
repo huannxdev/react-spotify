@@ -10,7 +10,7 @@ export function App() {
     <Provider store={store} >
       <ConnectedRouter history={history}>
         <div className='wrapper'>
-          <UiLayout />
+          <UiLayout/>
         </div>
       </ConnectedRouter>
     </Provider>

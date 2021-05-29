@@ -367,6 +367,90 @@
           }
         }
       }
+    },
+    "home": {
+      "root": "libs/web/home",
+      "sourceRoot": "libs/web/home/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/home/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/home"],
+          "options": {
+            "jestConfig": "libs/web/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "recent-played": {
+      "root": "libs/web/recent-played",
+      "sourceRoot": "libs/web/recent-played/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/recent-played/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/recent-played"],
+          "options": {
+            "jestConfig": "libs/web/recent-played/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-song": {
+      "root": "libs/web/song",
+      "sourceRoot": "libs/web/song/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/song/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/song"],
+          "options": {
+            "jestConfig": "libs/web/song/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "callback": {
+      "root": "libs/callback",
+      "sourceRoot": "libs/callback/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/callback/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/callback"],
+          "options": {
+            "jestConfig": "libs/callback/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

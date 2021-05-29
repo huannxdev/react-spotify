@@ -13,5 +13,9 @@ module.exports = {
     '<rootDir>/libs/spotify-route',
     '<rootDir>/libs/web/top-bar',
     '<rootDir>/libs/web/shared/app-config',
+    '<rootDir>/libs/web/home',
+    '<rootDir>/libs/web/recent-played',
+    '<rootDir>/libs/web/song',
+    '<rootDir>/libs/callback',
   ],
 };

@@ -1,0 +1,9 @@
+.recent-played-container {
+  @apply mt-8
+}
+
+.common-grid {
+  gap: 24px;
+  grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+  display: grid;
+}

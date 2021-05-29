@@ -8,7 +8,7 @@ const INIT_STATE: AuthReducer = {
   isLogined: !!localStorage.getItem('acessToken')
 };
 
-export default function authReducer(state = INIT_STATE, action: { type: string, payload: any }) {
+export default function authReducer(state = INIT_STATE, action: { type: string, payload: any }): AuthReducer {
   const { type, payload } = action;
   switch (type) {
     case AUTH_SUCCESS:
