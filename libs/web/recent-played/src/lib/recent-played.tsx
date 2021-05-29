@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import './recent-played.scss';
 import { Song } from '@spotify/web/song';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecentlyPlayedRequest, playedSongSelector, RootState } from '@spotify/web/store';
+import { getRecentlyPlayedRequest, RootState } from '@spotify/web/store';
 
 /* eslint-disable-next-line */
 export interface WebRecentPlayedProps {}

@@ -4,17 +4,14 @@ import { NavBar } from '@spotify/web/nav-bar';
 import { BrowserRouter, Route, Switch, withRouter } from 'react-router-dom';
 import { MainView } from '@spotify/web/main-view';
 import { NowPlayingBar } from '@spotify/web/now-playing-bar';
-import { useLocation } from 'react-router-dom';
-import { authDataFromHash, getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
-import { useDispatch, useSelector } from 'react-redux';
-import { authSuccess, RootState } from '@spotify/web/store';
+import { getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
+import { useDispatch } from 'react-redux';
+import { authSuccess } from '@spotify/web/store';
 import { TopBar } from '@spotify/web/top-bar';
 import { Callback } from '@spotify/callback';
 
 export function UiLayout() {
-  const location = useLocation();
   const dispatch = useDispatch();
-  // const isLogined = useSelector((state: RootState) => state.auth.isLogined);
   useEffect(() => {
     const isLogin = getToken();
     const spoifyAuthUrl = new SpotifyAuthorize().createAuthorizeURL();
