@@ -21,8 +21,8 @@ export function Song(props: WebSongProps) {
           </div>
         </div>
         <div className='song-description'>
-          <p className='text-white font-bold'>{props.name}</p>
-          <p className='text-description'>{props.description}</p>
+          <p className='ellipsis-text text-white font-bold'>{props.name}</p>
+          <p className='ellipsis-text text-description'>{props.description}</p>
         </div>
       </a>
     </div>

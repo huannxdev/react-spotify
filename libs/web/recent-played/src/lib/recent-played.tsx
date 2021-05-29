@@ -11,7 +11,6 @@ export interface WebRecentPlayedProps {}
 export function RecentPlayed(props: WebRecentPlayedProps) {
   const dispatch = useDispatch();
   const listSong = useSelector((state: RootState) => state.playedSong.listSong);
-  console.log(listSong);
   useEffect(() => {
     dispatch(getRecentlyPlayedRequest())
   }, [])

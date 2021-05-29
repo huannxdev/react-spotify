@@ -29,3 +29,9 @@
     color: #b3b3b4;
   }
 }
+
+.ellipsis-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
