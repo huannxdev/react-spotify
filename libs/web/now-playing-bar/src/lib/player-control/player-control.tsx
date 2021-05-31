@@ -1,3 +1,4 @@
+///  <reference types="@types/spotify-web-playback-sdk"/>
 import React from 'react';
 
 import './player-control.scss';
@@ -14,7 +15,7 @@ export function PlayerControl(props: PlayerControlProps) {
   const dispatch = useDispatch();
   const isPlaying = useSelector((state: RootState) => state.playBack.isPlaying);
   const deviceId = useSelector((state: RootState) => state.playBack.deviceId);
-  const currentTrack: SpotifyApi.TrackObjectSimplified = useSelector((state: RootState) => getCurrentTrack(state));
+  const currentTrack: Spotify.Track = useSelector((state: RootState) => getCurrentTrack(state));
   const currentPossitionMs: number = useSelector((state: RootState) => currentPosition(state));
   const onClickPlay = () => {
     dispatch(togglePlayer(isPlaying, {uris: [currentTrack.uri], position_ms: currentPossitionMs}, deviceId));
