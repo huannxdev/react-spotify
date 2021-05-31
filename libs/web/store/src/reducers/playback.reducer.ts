@@ -1,4 +1,3 @@
-import '@types/spotify-web-playback-sdk';
 import {
   SET_DEVICE_ID,
   SET_SDK_PLAYER,
