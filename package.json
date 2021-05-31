@@ -11,7 +11,7 @@
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "predeploy": "npm run build && --prod --baseHref=/spotify/",
+    "build-prod": "nx build --prod",
     "test": "nx test",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
@@ -30,8 +30,7 @@
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "build-tailwindcss": "nx run spotify:build-tailwind-css",
-    "deploy": "gh-pages -d dist/apps/spotify"
+    "build-tailwindcss": "nx run spotify:build-tailwind-css"
   },
   "private": true,
   "dependencies": {

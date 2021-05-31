@@ -5,7 +5,7 @@ import './main-view.scss';
 import { Categories } from '@spotify/web/browse/features/categories';
 import { SpotifyRoute } from '@spotify/spotify-route';
 import { Home } from '@spotify/web/home';
-import { Callback } from '../../../../../callback/src/lib/callback';
+import { Callback } from '@spotify/callback';
 
 /* eslint-disable-next-line */
 export interface MainViewProps {}

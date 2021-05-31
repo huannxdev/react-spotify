@@ -22,7 +22,7 @@ export function Song(props: WebSongProps) {
   const isPlaying = useSelector((state: RootState) => state.playBack.isPlaying);
   const currentTrack: Spotify.Track = useSelector((state: RootState) => getCurrentTrack(state));
   const onClickPlay = () => {
-    dispatch(togglePlayer(isPlaying, {uris: [props.contextUri]}, deviceId));
+    dispatch(togglePlayer(isPlaying && props.contextUri === currentTrack.uri, {uris: [props.contextUri]}, deviceId));
   }
   return (
     <div className='song__container'>

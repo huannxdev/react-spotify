@@ -6,10 +6,8 @@ import { MainView } from '@spotify/web/main-view';
 import { NowPlayingBar } from '@spotify/web/now-playing-bar';
 import { getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
 import { useDispatch, useSelector } from 'react-redux';
-import { authSuccess, RootState } from '@spotify/web/store';
+import { authSuccess, RootState, setDeviceId, setSDKPlayer, setStateSDKPlayer } from '@spotify/web/store';
 import { TopBar } from '@spotify/web/top-bar';
-import { setDeviceId, setSDKPlayer, setStateSDKPlayer } from '../../../store/src/actions/playback.action';
-import { config } from '@spotify/web/shared/app-config';
 
 export function UiLayout() {
   const dispatch = useDispatch();
@@ -79,7 +77,7 @@ export function UiLayout() {
 
   return (
     <div className='main__layout'>
-      <BrowserRouter basename={config.repoName}>
+      <BrowserRouter>
         <Switch>
           <Route path='/'>
             <React.Fragment>
