@@ -6,14 +6,16 @@ import './play-button.scss';
 export interface PlayButtonProps {
   flatIcon?: boolean,
   large?: boolean,
-  primary?: boolean
+  primary?: boolean,
+  isPlaying?: boolean,
+  handleClicked?: () => void;
 }
 
 export function PlayButton(props: PlayButtonProps) {
   return (
-    <div className='mx-4 text-black'>
+    <div className='mx-4 text-black' onClick={props.handleClicked}>
       <div className={`${buttonClass(props)}`}>
-        <i className='icon-play' />
+        <i className={props.isPlaying ? 'icon-pause' : 'icon-play'} />
       </div>
     </div>
   );

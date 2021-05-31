@@ -8,8 +8,8 @@ import { getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
 import { useDispatch, useSelector } from 'react-redux';
 import { authSuccess, RootState } from '@spotify/web/store';
 import { TopBar } from '@spotify/web/top-bar';
-import { Callback } from '@spotify/callback';
-import { setSDKPlayer } from '../../../store/src/actions/playback.action';
+import { setDeviceId, setSDKPlayer, setStateSDKPlayer } from '../../../store/src/actions/playback.action';
+import { config } from '@spotify/web/shared/app-config';
 
 export function UiLayout() {
   const dispatch = useDispatch();
@@ -38,11 +38,15 @@ export function UiLayout() {
     player.addListener('playback_error', ({ message }) => {
       console.error(message);
     });
-    player.addListener('player_state_changed', state => { console.log(state); });
+    player.addListener('player_state_changed', state => {
+      console.log(state);
+      dispatch(setStateSDKPlayer(state));
+    });
 
     // Ready
     player.addListener('ready', ({ device_id }) => {
       console.log('Ready with Device ID', device_id);
+      dispatch(setDeviceId(device_id));
     });
 
     // Not Ready
@@ -75,9 +79,9 @@ export function UiLayout() {
 
   return (
     <div className='main__layout'>
-      <BrowserRouter>
+      <BrowserRouter basename={config.repoName}>
         <Switch>
-          <Route path='/' exact={ true }>
+          <Route path='/'>
             <React.Fragment>
               <NavBar />
               <MainView />
@@ -85,7 +89,6 @@ export function UiLayout() {
               <TopBar />
             </React.Fragment>
           </Route>
-          <Route path='/callback' exact={ true } component={ Callback }></Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -10,7 +10,7 @@ export function Home(props: WebHomeProps) {
   return (
     <div className='home-container '>
       <h1 className='text-white text-3xl'>Welcome to React Spotify</h1>
-      <p className='text-white'>React Spotify was built with Nx workspace, React Hooks, TailwindCSS and Antd. You can checkout source code <a href='https://github.com/huannxdev/spotify-clone'>here</a></p>
+      <p className='text-white'>React Spotify was built with Nx workspace, React Hooks, TailwindCSS and Antd. You can checkout source code <a href='https://github.com/huannxdev/spotify-clone'>Huan Nguyen</a></p>
       <RecentPlayed />
     </div>
   );

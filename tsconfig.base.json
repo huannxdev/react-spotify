@@ -36,7 +36,8 @@
       "@spotify/web/home": ["libs/web/home/src/index.ts"],
       "@spotify/web/recent-played": ["libs/web/recent-played/src/index.ts"],
       "@spotify/web/song": ["libs/web/song/src/index.ts"],
-      "@spotify/callback": ["libs/callback/src/index.ts"]
+      "@spotify/callback": ["libs/callback/src/index.ts"],
+      "@spotify/web/shared/models": ["libs/web/shared/models/src/index.ts"]
     },
     "types": ["node", "spotify-api"]
   },

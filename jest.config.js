@@ -17,5 +17,6 @@ module.exports = {
     '<rootDir>/libs/web/recent-played',
     '<rootDir>/libs/web/song',
     '<rootDir>/libs/callback',
+    '<rootDir>/libs/web/shared/models',
   ],
 };

@@ -20,7 +20,7 @@ export function RecentPlayed(props: WebRecentPlayedProps) {
       <div className='common-grid'>
         {
           listSong.map((song) => (
-            <Song key={song.track.id} name={song.track.name} description={song.track.artists[0]?.name} image={(song.track as any).album.images[0].url} />
+            <Song key={song.track.uri} name={song.track.name} description={song.track.artists[0]?.name} image={(song.track as any).album.images[0].url} contextUri={song.track.uri} />
           ))
         }
       </div>

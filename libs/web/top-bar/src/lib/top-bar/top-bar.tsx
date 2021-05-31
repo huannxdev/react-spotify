@@ -25,11 +25,14 @@ export function TopBar(props: TopBarProps) {
   );
   const userName = useSelector((state: RootState) => state.user.userName);
   const img = useSelector((state: RootState) => state.user.userAvatar);
+  const isLogined = useSelector((state: RootState) => state.auth.isLogined)
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getMeRequest());
-  }, [])
+    if (isLogined) {
+      dispatch(getMeRequest());
+    }
+  }, [isLogined])
 
   return (
     <div className='top-bar__container'>

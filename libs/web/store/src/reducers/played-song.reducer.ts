@@ -14,7 +14,8 @@ export default function playedSongReducer(state = INIT_STATE, action: { type: st
     case GET_RECENT_PLAYED_REQUEST__SUCCESS:
       return {
         ...state,
-        listSong: payload
+        listSong: payload.filter(({ track }, idx, arr) => arr.findIndex((item) => item.track.id === track.id) === idx)
+          .slice(0, 20)
       };
     default:
       return state;

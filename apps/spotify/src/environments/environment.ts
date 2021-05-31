@@ -3,5 +3,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.spotify.com/v1'
+  apiUrl: 'https://api.spotify.com/v1',
+  callbackUrl: 'http://localhost:4200/callback/',
+  repositoryName: '',
 };

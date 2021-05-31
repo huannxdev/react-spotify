@@ -1,4 +1,5 @@
 import { AuthModel } from './models/auth.model';
+import { config } from '@spotify/web/shared/app-config';
 
 export class SpotifyAuthorize {
   SPOTIFY_AUTHORIZE_URL = 'https://accounts.spotify.com/authorize';
@@ -30,7 +31,7 @@ export class SpotifyAuthorize {
   createAuthorizeURL() {
     const params = new URLSearchParams({
       client_id: this.CLIENT_ID,
-      redirect_uri: `http://localhost:4200/callback/`,
+      redirect_uri: config.CALLBACK_API,
       scope: encodeURIComponent(this.SCOPES.join(' ')),
       response_type: 'token'
     });
