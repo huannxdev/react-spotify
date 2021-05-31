@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../../dist/out-tsc",
-    "types": ["node", "spotify-web-playback-sdk"]
+    "types": ["node", "spotify-web-playback-sdk", "spotify-api"]
   },
   "files": [
     "../../../node_modules/@nrwl/react/typings/cssmodule.d.ts",

@@ -1,7 +1,6 @@
 import { GET_RECENT_PLAYED_REQUEST__SUCCESS } from '@spotify/web/store';
 
 interface PlayedSongReducer {
-  // @ts-ignore
   listSong: SpotifyApi.PlayHistoryObject[]
 }
 
