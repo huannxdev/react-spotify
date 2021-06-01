@@ -1,4 +1,5 @@
-import { GET_RECENT_PLAYED_REQUEST__SUCCESS } from '@spotify/web/store';
+import { GET_RECENT_PLAYED_REQUEST__SUCCESS } from '../actions/play-song.action';
+
 
 interface PlayedSongReducer {
   listSong: SpotifyApi.PlayHistoryObject[]

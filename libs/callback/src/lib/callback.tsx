@@ -17,7 +17,7 @@ export function Callback(props: CallbackProps) {
   useEffect(() => {
     const data = authDataFromHash(location.hash);
     if (data?.accessToken) {
-      dispatch(authSuccess(data));
+      dispatch(authSuccess(data, true));
       window.location.hash = '';
     }
   }, []);

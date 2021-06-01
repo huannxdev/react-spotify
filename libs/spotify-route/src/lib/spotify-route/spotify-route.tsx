@@ -1,7 +1,7 @@
 import React, { ClassicComponent, ComponentClass, FunctionComponent } from 'react';
 
 import './spotify-route.scss';
-import { getToken, SpotifyAuthorize } from '@spotify/web/auth';
+import { getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
 import { Route, Redirect } from 'react-router-dom';
 
 /* eslint-disable-next-line */
@@ -13,7 +13,8 @@ export interface SpotifyRouteProps {
 }
 
 export function SpotifyRoute(props: SpotifyRouteProps) {
-  const isLogin = getToken();
+  const authInfo = getAuthInfo();
+  const isLogin = authInfo.accessToken && new Date(JSON.parse(authInfo.expiresIn)) > new Date();
   const spoifyAuthUrl = new SpotifyAuthorize().createAuthorizeURL();
   if (!isLogin && !window.location.hash) {
     window.location.href = spoifyAuthUrl;

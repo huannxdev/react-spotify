@@ -3,7 +3,7 @@ import axios, { AxiosInstance } from 'axios';
 import { redirectAuthorize } from '@spotify/web/auth';
 
 
-const API_URL = config.API_HOST;
+const API_URL = config().API_HOST;
 const request : AxiosInstance= axios.create({
   baseURL: API_URL,
 });

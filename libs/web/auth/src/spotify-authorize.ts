@@ -31,7 +31,7 @@ export class SpotifyAuthorize {
   createAuthorizeURL() {
     const params = new URLSearchParams({
       client_id: this.CLIENT_ID,
-      redirect_uri: config.CALLBACK_API,
+      redirect_uri: config().CALLBACK_API,
       scope: encodeURIComponent(this.SCOPES.join(' ')),
       response_type: 'token'
     });
