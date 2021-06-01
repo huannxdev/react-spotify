@@ -1,19 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import './player-playback.scss';
 import { Slider } from 'antd';
 
 /* eslint-disable-next-line */
 export interface PlayerPlayerPlaybackProps {
-  max: number
+  max: number;
+  value: number;
+  isPlaying: boolean;
 }
 
 export function PlayerPlayback(props: PlayerPlayerPlaybackProps) {
-  const [currentValue, setcurrentValue] = useState(0);
+  const interval = useRef(null);
+  const [count, setCount] = useState(1000);
+  useEffect(() => {
+    if (props.isPlaying) {
+      interval.current = setInterval(() => {
+        setCount(count + 1000)
+      }, 1000);
+      return () => clearInterval(interval.current);
+    }
+  });
+  useEffect(() => {
+    setCount(0);
+  }, [props.isPlaying, props.value])
   return (
     <div>
-      <Slider className='flex-1 mx-2' max={props.max} value={currentValue}
-              onChange={(value) => setcurrentValue(value)} tooltipVisible={false} />
+      <Slider className='flex-1 mx-2' max={props.max} value={props.value + count} tooltipVisible={false} />
     </div>
   );
 }
