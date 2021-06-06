@@ -25,7 +25,7 @@ export function NowPlayingBar(props: NowPlayingBarProps) {
         <div className='now-playing-bar__left flex flex-1'></div>
         <div className='now-playing-bar__center flex-col flex flex-1'>
           <PlayerControl isPlaying={isPlaying} onClickPlay={onClickPlay} />
-          <PlayerPlayback max={currentTrackPlayer?.duration || 0} value={currentPositionMs} isPlaying={isPlaying} />
+          <PlayerPlayback max={currentTrackPlayer?.duration || 0} value={currentPositionMs} isPlaying={isPlaying} deviceId={deviceId} />
         </div>
         <div className='now-playing-bar__right flex flex-1'></div>
       </div>

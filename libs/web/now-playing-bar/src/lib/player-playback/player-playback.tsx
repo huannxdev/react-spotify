@@ -2,12 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import './player-playback.scss';
 import { Slider } from 'antd';
+import { useDispatch } from 'react-redux';
+import { seekCurrentTrack } from '@spotify/web/store';
 
 /* eslint-disable-next-line */
 export interface PlayerPlayerPlaybackProps {
   max: number;
   value: number;
   isPlaying: boolean;
+  deviceId: string;
 }
 
 export function PlayerPlayback(props: PlayerPlayerPlaybackProps) {
@@ -15,14 +18,16 @@ export function PlayerPlayback(props: PlayerPlayerPlaybackProps) {
   const [count, setCount] = useState(1000);
   const [isMoving, setIsMoving] = useState(false);
   const [movingValue, setMovingValue] = useState(0);
+  const dispatch = useDispatch();
   const onChange = (value) => {
     if (!isMoving) {
       setIsMoving(true);
     }
     setMovingValue(value);
   }
-  const afterChange = () => {
+  const afterChange = (value) => {
     setIsMoving(false);
+    dispatch(seekCurrentTrack(props.deviceId, value))
   }
   useEffect(() => {
     if (props.isPlaying) {

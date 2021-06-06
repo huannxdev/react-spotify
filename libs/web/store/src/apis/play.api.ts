@@ -19,3 +19,15 @@ export const togglePlay = (isPlaying: boolean, request: SpotifyPlayRequestApi, d
   }
   return play(request, deviceId);
 };
+
+export const skipToNextTrackRequest = (deviceId: string) => {
+  return request.post(`${ appConfig.API_HOST }/me/player/next`, {}, {params: {device_id: deviceId}});
+}
+
+export const skipToPreviousTrackRequest = (deviceId: string) => {
+  return request.post(`${ appConfig.API_HOST }/me/player/previous`, {}, {params: {device_id: deviceId}});
+}
+
+export const seekTrackRequest = (deviceId: string, positionMs: number) => {
+  return request.put(`${ appConfig.API_HOST }/me/player/seek`, {}, {params: {device_id: deviceId, position_ms: positionMs}});
+}
