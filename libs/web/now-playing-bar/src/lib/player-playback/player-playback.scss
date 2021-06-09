@@ -1,0 +1,20 @@
+.ant-slider {
+  .ant-slider-handle {
+    visibility: hidden;
+  }
+  .ant-slider-track {
+    background-color: rgba(179,179,179,1);
+  }
+  &:hover {
+    .ant-slider-handle {
+      visibility: visible;
+    }
+    .ant-slider-track {
+      background-color: rgba(29,185,84,1);
+    }
+  }
+
+  .ant-slider-rail {
+    background-color: rgba(83,83,83,1) !important;
+  }
+}

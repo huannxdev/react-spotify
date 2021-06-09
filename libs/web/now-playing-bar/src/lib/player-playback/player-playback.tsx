@@ -15,34 +15,46 @@ export interface PlayerPlayerPlaybackProps {
 
 export function PlayerPlayback(props: PlayerPlayerPlaybackProps) {
   const interval = useRef(null);
-  const [count, setCount] = useState(1000);
   const [isMoving, setIsMoving] = useState(false);
   const [movingValue, setMovingValue] = useState(0);
+  const [currentPosition, setCurrentPosition] = useState(0);
   const dispatch = useDispatch();
-  const onChange = (value) => {
+  const onChange = (value: number) => {
     if (!isMoving) {
       setIsMoving(true);
     }
     setMovingValue(value);
-  }
-  const afterChange = (value) => {
+  };
+  const afterChange = (value: number) => {
     setIsMoving(false);
-    dispatch(seekCurrentTrack(props.deviceId, value))
-  }
+    dispatch(seekCurrentTrack(props.deviceId, value));
+  };
+
+  const formatTimeCount = (value: number): string => {
+
+    return Number(value) >= 0 ? new Date(value).toISOString().substr(14, 5) : '';
+  };
   useEffect(() => {
-    if (props.isPlaying) {
+    if (props.isPlaying && currentPosition > 0) {
       interval.current = setInterval(() => {
-        setCount(count + 1000)
+        setCurrentPosition(currentPosition + 1000);
       }, 1000);
-      return () => clearInterval(interval.current);
     }
+
+    return () => {
+      clearInterval(interval.current);
+    };
   });
+
   useEffect(() => {
-    setCount(0);
-  }, [props.isPlaying, props.value])
+    setCurrentPosition(props.value);
+  }, [props.value])
   return (
-    <div>
-      <Slider className='flex-1 mx-2' max={props.max} value={isMoving ? movingValue : (props.value + count)} onChange={onChange} onAfterChange={afterChange} tooltipVisible={false} />
+    <div className='flex items-center'>
+      <span className='time-duration text-gray-500'>{ formatTimeCount(isMoving ? movingValue : currentPosition) }</span>
+      <Slider className='flex-1 mx-3' max={ props.max } value={ isMoving ? movingValue : currentPosition }
+              onChange={ onChange } onAfterChange={ afterChange } tooltipVisible={ false } />
+      <span className='time-duration text-gray-500'>{ formatTimeCount(props.max) }</span>
     </div>
   );
 }

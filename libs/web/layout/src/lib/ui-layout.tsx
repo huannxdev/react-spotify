@@ -25,8 +25,9 @@ export function UiLayout() {
       console.error(message);
     });
 
-    player.addListener('authentication_error', ({ message }) => {
-      console.error(message);
+    player.addListener('authentication_error', () => {
+      const spoifyAuthUrl = new SpotifyAuthorize().createAuthorizeURL();
+      window.location.href = spoifyAuthUrl;
     });
 
     player.addListener('account_error', ({ message }) => {
@@ -35,6 +36,7 @@ export function UiLayout() {
 
     player.addListener('playback_error', ({ message }) => {
       console.error(message);
+
     });
     player.addListener('player_state_changed', state => {
       console.log(state);

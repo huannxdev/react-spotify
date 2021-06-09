@@ -3,8 +3,7 @@ import {
   SET_DEVICE_ID,
   SET_SDK_PLAYER,
   SET_STATE_SDK_PLAYER,
-  SET_VOLUME,
-  TOGGLE_PLAY
+  SET_VOLUME
 } from '../actions/playback.action';
 interface PlaybackReducer {
   volume: number,
@@ -35,11 +34,7 @@ export default function playbackReducer(state = INIT_STATE, action: { type: stri
         ...state,
         player: payload
       }
-    case TOGGLE_PLAY:
-      return {
-        ...state,
-        isPlaying: payload
-      }
+
     case SET_STATE_SDK_PLAYER:
       return {
         ...state,
