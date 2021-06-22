@@ -35,9 +35,16 @@
       ],
       "@spotify/web/home": ["libs/web/home/src/index.ts"],
       "@spotify/web/recent-played": ["libs/web/recent-played/src/index.ts"],
-      "@spotify/web/song": ["libs/web/song/src/index.ts"],
+      "@spotify/web/shared/ui/song": ["libs/web/shared/ui/song/src/index.ts"],
       "@spotify/callback": ["libs/callback/src/index.ts"],
-      "@spotify/web/shared/models": ["libs/web/shared/models/src/index.ts"]
+      "@spotify/web/shared/models": ["libs/web/shared/models/src/index.ts"],
+      "@spotify/web/shared/utils": ["libs/web/shared/utils/src/index.ts"],
+      "@spotify/web/browse/features/search": [
+        "libs/web/browse/features/search/src/index.ts"
+      ],
+      "@spotify/web/shared/ui/play-list": [
+        "libs/web/shared/ui/play-list/src/index.ts"
+      ]
     },
     "types": ["node", "spotify-api"]
   },

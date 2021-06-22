@@ -65,13 +65,22 @@
     "recent-played": {
       "tags": []
     },
-    "web-song": {
+    "song": {
       "tags": []
     },
     "callback": {
       "tags": []
     },
     "web-shared-models": {
+      "tags": []
+    },
+    "web-shared-utils": {
+      "tags": []
+    },
+    "web-search": {
+      "tags": []
+    },
+    "play-list": {
       "tags": []
     }
   }

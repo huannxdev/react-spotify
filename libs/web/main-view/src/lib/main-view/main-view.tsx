@@ -6,6 +6,7 @@ import { Categories } from '@spotify/web/browse/features/categories';
 import { SpotifyRoute } from '@spotify/spotify-route';
 import { Home } from '@spotify/web/home';
 import { Callback } from '@spotify/callback';
+import { SearchContainer } from '@spotify/web/browse/features/search';
 
 /* eslint-disable-next-line */
 export interface MainViewProps {}
@@ -15,7 +16,7 @@ export function MainView(props: MainViewProps) {
     <div className='main-view'>
       <Switch>
         <SpotifyRoute path="/" exact={true} component={Home} />
-        <SpotifyRoute path='/browse' exact={true} component={Categories} />
+        <SpotifyRoute path='/search' component={SearchContainer} />
         <Route path='/callback' exact={true} component={ Callback } />
       </Switch>
     </div>

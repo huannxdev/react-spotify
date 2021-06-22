@@ -410,22 +410,22 @@
         }
       }
     },
-    "web-song": {
-      "root": "libs/web/song",
-      "sourceRoot": "libs/web/song/src",
+    "song": {
+      "root": "libs/web/shared/ui/song",
+      "sourceRoot": "libs/web/shared/ui/song/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/web/song/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": ["libs/web/shared/ui/song/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/web/song"],
+          "outputs": ["coverage/libs/web/shared/ui/song"],
           "options": {
-            "jestConfig": "libs/web/song/jest.config.js",
+            "jestConfig": "libs/web/shared/ui/song/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -468,6 +468,73 @@
           "outputs": ["coverage/libs/web/shared/models"],
           "options": {
             "jestConfig": "libs/web/shared/models/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-shared-utils": {
+      "root": "libs/web/shared/utils",
+      "sourceRoot": "libs/web/shared/utils/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/utils/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/utils"],
+          "options": {
+            "jestConfig": "libs/web/shared/utils/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "web-search": {
+      "root": "libs/web/browse/features/search",
+      "sourceRoot": "libs/web/browse/features/search/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/browse/features/search/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/browse/features/search"],
+          "options": {
+            "jestConfig": "libs/web/browse/features/search/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "play-list": {
+      "root": "libs/web/shared/ui/play-list",
+      "sourceRoot": "libs/web/shared/ui/play-list/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/web/shared/ui/play-list/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/ui/play-list"],
+          "options": {
+            "jestConfig": "libs/web/shared/ui/play-list/jest.config.js",
             "passWithNoTests": true
           }
         }

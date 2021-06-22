@@ -24,7 +24,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+.icon-search:before {
+  content: "\e90e";
+}
 .icon-prev:before {
   content: "\e90c";
 }

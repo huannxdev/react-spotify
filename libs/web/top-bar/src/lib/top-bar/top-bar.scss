@@ -37,4 +37,22 @@
     height: 32px;
     border-radius: 50%;
   }
+
+  .top-bar__search {
+    @apply bg-white p-2.5 flex items-center;
+    border-radius: 24px;
+    max-width: 400px;
+    flex: 1;
+    margin-left: 24px;
+
+    .icon-search {
+      font-size: 24px;
+      margin-right: 16px;
+    }
+    input {
+      outline: none;
+      border:none;
+      width: 100%;
+    }
+  }
 }

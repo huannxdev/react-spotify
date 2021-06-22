@@ -5,6 +5,7 @@ import authReducer from './auth.reducer';
 import userReducer from './user.reducer';
 import playedSongReducer from './played-song.reducer';
 import playbackReducer from './playback.reducer';
+import browseReducer from './browse.reducer';
 
 function createReducer() {
   return combineReducers({
@@ -12,7 +13,8 @@ function createReducer() {
     auth: authReducer,
     user: userReducer,
     playedSong: playedSongReducer,
-    playBack: playbackReducer
+    playBack: playbackReducer,
+    browseCategory: browseReducer
   })
 }
 

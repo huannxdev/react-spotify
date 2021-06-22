@@ -18,5 +18,8 @@ module.exports = {
     '<rootDir>/libs/web/song',
     '<rootDir>/libs/callback',
     '<rootDir>/libs/web/shared/models',
+    '<rootDir>/libs/web/shared/utils',
+    '<rootDir>/libs/web/browse/features/search',
+    '<rootDir>/libs/web/shared/ui/play-list',
   ],
 };

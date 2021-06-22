@@ -5,7 +5,7 @@ import './nav-bar.scss';
 
 const NavItems = [
   { label: 'Home', path: '', exact: true },
-  { label: 'Browse', path: '/browse' },
+  { label: 'Search', path: '/search' },
   { label: 'My Playlists', path: '/collection/playlists' },
   { label: 'My Albums', path: '/albums' }
 ];

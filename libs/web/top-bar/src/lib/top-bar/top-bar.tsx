@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import './top-bar.scss';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMeRequest, RootState } from '@spotify/web/store';
+import debounceTime from '../../../../shared/utils/src/debounce-time';
 
 /* eslint-disable-next-line */
 export interface TopBarProps {}
@@ -27,22 +28,32 @@ export function TopBar(props: TopBarProps) {
   const img = useSelector((state: RootState) => state.user.userAvatar);
   const isLogined = useSelector((state: RootState) => state.auth.isLogined)
   const dispatch = useDispatch();
+  const [searchText, setSearchText] = useState('');
+  const debouncedSearchText = debounceTime(searchText, 500);
 
   useEffect(() => {
     if (isLogined) {
       dispatch(getMeRequest());
     }
-  }, [isLogined])
+  }, [isLogined]);
+
+  useEffect(() => {
+
+  }, [debouncedSearchText])
 
   return (
     <div className='top-bar__container'>
-      <div className='flex'>
+      <div className='flex flex-1 items-center'>
         <button className='mr-4 arrow-button'>
           <i className='icon-prev'></i>
         </button>
         <button className='arrow-button'>
           <i className='icon-next'></i>
         </button>
+        <div className='top-bar__search'>
+          <i className='icon-search'></i>
+          <input placeholder='Artists, songs, or podcasts' onChange={e => setSearchText(e.target.value)} />
+        </div>
       </div>
       <div className='user-dropdown'>
         <Dropdown className='flex items-center' overlay={menu}>

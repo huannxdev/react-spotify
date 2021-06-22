@@ -4,19 +4,19 @@ import React, { useState } from 'react';
 import './song.scss';
 import { PlayButton } from '@spotify/web/shared/ui/play-button';
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePlayer } from '../../../store/src/actions/playback.action';
+import { togglePlayer } from '../../../../../../store/src/actions/playback.action';
 import { RootState } from '@spotify/web/store';
-import { getCurrentTrack } from '../../../store/src/selectors/playback.selector';
+import { getCurrentTrack } from '../../../../../../store/src/selectors/playback.selector';
 
 /* eslint-disable-next-line */
-export interface WebSongProps {
+export interface SongProps {
   name: string;
   description: string;
   image: string;
   contextUri: string;
 }
 
-export function Song(props: WebSongProps) {
+export function Song(props: SongProps) {
   const dispatch = useDispatch();
   const deviceId = useSelector((state: RootState) => state.playBack.deviceId);
   const isPlaying = useSelector((state: RootState) => state.playBack.isPlaying);
