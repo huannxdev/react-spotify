@@ -53,6 +53,7 @@ export function TopBar(props: TopBarProps) {
         <div className='top-bar__search'>
           <i className='icon-search'></i>
           <input placeholder='Artists, songs, or podcasts' onChange={e => setSearchText(e.target.value)} />
+          <i className='icon-cancel cursor-pointer'></i>
         </div>
       </div>
       <div className='user-dropdown'>

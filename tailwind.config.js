@@ -1,7 +1,7 @@
 module.exports = {
   prefix: '',
   purge: {
-    content: ['./apps/**/*.{html,ts}', './libs/**/*.{html,ts}']
+    content: ['./apps/**/*.tsx', './libs/**/*.tsx']
   },
   darkMode: false, // or 'media' or 'class'
   theme: {

@@ -1,8 +1,8 @@
-import React, { ClassicComponent, ComponentClass, FunctionComponent } from 'react';
+import React, { ComponentClass, FunctionComponent } from 'react';
 
 import './spotify-route.scss';
-import { getAuthInfo, getToken, SpotifyAuthorize } from '@spotify/web/auth';
-import { Route, Redirect } from 'react-router-dom';
+import { getAuthInfo, SpotifyAuthorize } from '@spotify/web/auth';
+import { Route } from 'react-router-dom';
 
 /* eslint-disable-next-line */
 export interface SpotifyRouteProps {
