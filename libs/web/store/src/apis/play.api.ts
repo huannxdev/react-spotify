@@ -1,5 +1,6 @@
-import { request, config } from '@spotify/web/shared/app-config';
+import { config } from '@spotify/web/shared/app-config';
 import { SpotifyPlayRequestApi } from '@spotify/web/shared/models';
+import { request } from '@spotify/web/shared/http';
 const appConfig = config();
 export const getRecentlyPlayed = () => {
   return request.get<SpotifyApi.UsersRecentlyPlayedTracksResponse>(`${ appConfig.API_HOST }/me/player/recently-played`, {params: {limit: 50}});

@@ -539,6 +539,27 @@
           }
         }
       }
+    },
+    "web-shared-http": {
+      "root": "libs/web/shared/http",
+      "sourceRoot": "libs/web/shared/http/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/web/shared/http/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/web/shared/http"],
+          "options": {
+            "jestConfig": "libs/web/shared/http/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   }
 }

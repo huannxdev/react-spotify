@@ -1,4 +1,4 @@
-import { config } from './config';
+import { config } from '../../../app-config/src/lib/config';
 import axios, { AxiosInstance } from 'axios';
 import { redirectAuthorize } from '@spotify/web/auth';
 

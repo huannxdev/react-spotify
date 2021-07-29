@@ -82,6 +82,9 @@
     },
     "play-list": {
       "tags": []
+    },
+    "web-shared-http": {
+      "tags": []
     }
   }
 }

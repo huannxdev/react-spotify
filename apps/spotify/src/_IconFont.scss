@@ -24,6 +24,12 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-music2:before {
+  content: "\e910";
+}
+.icon-music1:before {
+  content: "\e911";
+}
 .icon-cancel:before {
   content: "\e90f";
 }

@@ -1,0 +1,30 @@
+.thumbnail-wrapper .thumbnail
+{
+  &--running {
+    animation: spin 6s linear infinite;
+    animation-play-state: running;
+  }
+  &--pause {
+    animation: spin 6s linear infinite;
+    animation-play-state: paused;
+  }
+  figure {
+    width: 64px;
+    height: 64px;
+    border: 2px solid white;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+}
+
+.link-subtle {
+  color: #b3b3b4;
+}
+
+.text-title {
+  font-size: 0.85rem;
+}
+
+.text-description {
+  font-size: 0.75rem;
+}

@@ -5,7 +5,8 @@ import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { getMeRequest, RootState } from '@spotify/web/store';
-import debounceTime from '../../../../shared/utils/src/debounce-time';
+import { debounceTime } from '@spotify/web/shared/utils';
+import { useLocation } from 'react-router-dom'
 
 /* eslint-disable-next-line */
 export interface TopBarProps {}
@@ -26,16 +27,17 @@ export function TopBar(props: TopBarProps) {
   );
   const userName = useSelector((state: RootState) => state.user.userName);
   const img = useSelector((state: RootState) => state.user.userAvatar);
-  const isLogined = useSelector((state: RootState) => state.auth.isLogined)
+  const isLoggedIn = useSelector((state: RootState) => state.auth.isLogined)
   const dispatch = useDispatch();
   const [searchText, setSearchText] = useState('');
   const debouncedSearchText = debounceTime(searchText, 500);
+  const location = useLocation();
 
   useEffect(() => {
-    if (isLogined) {
+    if (isLoggedIn) {
       dispatch(getMeRequest());
     }
-  }, [isLogined]);
+  }, [isLoggedIn]);
 
   useEffect(() => {
 
@@ -50,11 +52,11 @@ export function TopBar(props: TopBarProps) {
         <button className='arrow-button'>
           <i className='icon-next'></i>
         </button>
-        <div className='top-bar__search'>
+        {location.pathname.includes('search') && <div className='top-bar__search'>
           <i className='icon-search'></i>
           <input placeholder='Artists, songs, or podcasts' onChange={e => setSearchText(e.target.value)} />
-          <i className='icon-cancel cursor-pointer'></i>
-        </div>
+          <i className='icon-cancel cursor-pointer' onClick={e => setSearchText('')}></i>
+        </div>}
       </div>
       <div className='user-dropdown'>
         <Dropdown className='flex items-center' overlay={menu}>

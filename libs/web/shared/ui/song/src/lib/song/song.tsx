@@ -1,12 +1,12 @@
 ///  <reference types="@types/spotify-web-playback-sdk"/>
-import React, { useState } from 'react';
+import React from 'react';
 
 import './song.scss';
 import { PlayButton } from '@spotify/web/shared/ui/play-button';
 import { useDispatch, useSelector } from 'react-redux';
-import { togglePlayer } from '../../../../../../store/src/actions/playback.action';
+import { togglePlayer } from '@spotify/web/store';
 import { RootState } from '@spotify/web/store';
-import { getCurrentTrack } from '../../../../../../store/src/selectors/playback.selector';
+import { getCurrentTrack } from '@spotify/web/store';
 
 /* eslint-disable-next-line */
 export interface SongProps {
@@ -14,6 +14,7 @@ export interface SongProps {
   description: string;
   image: string;
   contextUri: string;
+  isPlaylist?: boolean;
 }
 
 export function Song(props: SongProps) {
@@ -22,7 +23,8 @@ export function Song(props: SongProps) {
   const isPlaying = useSelector((state: RootState) => state.playBack.isPlaying);
   const currentTrack: Spotify.Track = useSelector((state: RootState) => getCurrentTrack(state));
   const onClickPlay = () => {
-    dispatch(togglePlayer(isPlaying && props.contextUri === currentTrack.uri, {uris: [props.contextUri]}, deviceId));
+    dispatch(togglePlayer(isPlaying && props.contextUri === currentTrack.uri,
+      props.isPlaylist ? {context_uri: props.contextUri} : {uris: [props.contextUri]}, deviceId));
   }
   return (
     <div className='song__container'>

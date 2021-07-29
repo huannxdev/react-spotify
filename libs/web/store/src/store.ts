@@ -3,9 +3,10 @@ import thunk from 'redux-thunk';
 import { routerMiddleware } from 'connected-react-router';
 import history from './utils/history';
 import createReducer from './reducers';
+import { config } from '@spotify/web/shared/app-config';
 
 const middleware = [thunk, routerMiddleware(history)];
-const composeEnhancers = compose;
+const composeEnhancers = (!config().APP_ENV_PROD ? window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] as typeof compose : null) || compose;
 
 const reducers = createReducer();
 export const store = createStore(

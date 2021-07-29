@@ -5,6 +5,7 @@ import PlayerControl from '../player-control/player-control';
 import PlayerPlayback from '../player-playback/player-playback';
 import { useDispatch, useSelector } from 'react-redux';
 import { currentPosition, getCurrentTrack, RootState, togglePlayer } from '@spotify/web/store';
+import { CurrentTrackInfo } from '../current-track-info/current-track-info';
 
 /* eslint-disable-next-line */
 export interface NowPlayingBarProps {}
@@ -22,7 +23,9 @@ export function NowPlayingBar(props: NowPlayingBarProps) {
   return (
     <div className='now-playing-bar'>
       <div className='now-playing-bar__container'>
-        <div className='now-playing-bar__left flex flex-1'></div>
+        <div className='now-playing-bar__left flex flex-1'>
+          <CurrentTrackInfo isPlaying={isPlaying} currentTrack={currentTrack}></CurrentTrackInfo>
+        </div>
         <div className='now-playing-bar__center flex-col flex flex-1'>
           <PlayerControl isPlaying={isPlaying} onClickPlay={onClickPlay} />
           <PlayerPlayback max={currentTrackPlayer?.duration || 0} value={currentPositionMs} isPlaying={isPlaying} deviceId={deviceId} />

@@ -21,5 +21,6 @@ module.exports = {
     '<rootDir>/libs/web/shared/utils',
     '<rootDir>/libs/web/browse/features/search',
     '<rootDir>/libs/web/shared/ui/play-list',
+    '<rootDir>/libs/web/shared/http',
   ],
 };

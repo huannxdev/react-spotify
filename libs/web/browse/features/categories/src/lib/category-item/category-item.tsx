@@ -1,7 +1,9 @@
 import React from 'react';
 
 import './category-item.scss';
-import { NavLink } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setCurrentBrowseCategoryRequest } from '@spotify/web/store';
 
 /* eslint-disable-next-line */
 export interface CategoryItemProps {
@@ -9,15 +11,20 @@ export interface CategoryItemProps {
 }
 
 export function CategoryItem(props: CategoryItemProps) {
+  let history = useHistory();
+  const dispatch = useDispatch();
+  const navigateToPlaylist = () => {
+    dispatch(setCurrentBrowseCategoryRequest(props.category));
+    history.push(`/browse/${ props.category.id }`);
+  };
   return (
-    <NavLink to={`/browse/${props.category.id}`}>
-      <div className='category-item-container'>
-        <div className='category-item__cover' style={{backgroundImage: `url(${props.category.icons[0].url})`}}></div>
-        <div className='category-item__name'>
-          <span>{props.category.name}</span>
-        </div>
+    <div className='category-item-container' onClick={ navigateToPlaylist }>
+      <div className='category-item__cover'
+           style={ { backgroundImage: `url(${ props.category.icons[0].url })` } }></div>
+      <div className='category-item__name'>
+        <span>{ props.category.name }</span>
       </div>
-    </NavLink>
+    </div>
   );
 }
 

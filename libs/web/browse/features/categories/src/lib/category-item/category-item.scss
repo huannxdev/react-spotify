@@ -1,6 +1,7 @@
 .category-item-container {
   display: flex;
   position: relative;
+  cursor: pointer;
 
   .category-item__name {
     position: absolute;
